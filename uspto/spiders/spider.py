@@ -77,12 +77,14 @@ class Uspto(CrawlSpider):
         item['authors'] = authors
         item['application_date'] = date
 
-        # abstract
-        abstract = response.xpath('//p//text()')[0].extract().replace('\n   ', '').strip()
-        item['abstract'] = abstract
-
         soup = bs(response.body, 'lxml')
         soup_content = soup.prettify()
+
+        # abstract
+        #abstract = response.xpath('//p//text()')[0].extract().replace('\n   ', '').strip()
+        abstract = soup.find('p').text.strip().replace('\n    ', '')
+        item['abstract'] = abstract
+
         tabletags_list = soup.find_all('table')
         fonttags_list = soup.find_all('font')
         titletags_list = soup.find_all('title')
