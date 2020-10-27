@@ -7,7 +7,7 @@ beautifulsoup4==4.7.1
 bs4==0.0.1
 cffi==1.12.3
 constantly==15.1.0
-cryptography==2.7
+cryptography==3.2
 cssselect==1.0.3
 decorator==4.4.0
 hyperlink==19.0.0
